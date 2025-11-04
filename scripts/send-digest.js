@@ -123,7 +123,7 @@ async function sendEmails(subscribers, articles) {
         const html = generateEmailHTML(articles).replace('{{unsubscribe_url}}', unsubscribeUrl);
 
         return resend.emails.send({
-          from: process.env.FROM_EMAIL,
+          from: `Daily AI News <${process.env.FROM_EMAIL}>`,
           to: subscriber.email,
           subject: `Daily AI News - ${format(new Date(), 'MMMM d, yyyy')}`,
           html: html,
